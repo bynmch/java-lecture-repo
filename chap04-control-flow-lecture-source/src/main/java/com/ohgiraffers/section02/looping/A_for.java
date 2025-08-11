@@ -33,11 +33,11 @@ public class A_for {
         System.out.println("sum = " + sum);
 
         /* 설명. for문을 통해 개선해 보자. (feat. 규칙적이며 반복적인 코드들) */
-        int forSum = 0;
-        
         /* 설명.  디버깅 요령: 1. 반드시 되는 지점까지 돌리거나 주석해서 되게 만든다.
          *                  2. 코드를 한 번에 많이 완벽하게 하고 실행하면 안된다. <!!절대 명심!!>
-        *   */
+        * */
+        int forSum = 0;
+
         for (int i = 0; i < 10; i+=2) {
             System.out.println("i = " + i);
             forSum += (i + 1) * 2 + 1;

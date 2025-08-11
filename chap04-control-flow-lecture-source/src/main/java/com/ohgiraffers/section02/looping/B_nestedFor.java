@@ -3,6 +3,7 @@ package com.ohgiraffers.section02.looping;
 import java.util.Scanner;
 
 public class B_nestedFor {
+
     /* 설명. 구구단 */
     public void printGugudanFromTwoToNine() {
 
