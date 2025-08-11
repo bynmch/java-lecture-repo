@@ -1,0 +1,24 @@
+package com.ohgiraffers.section03.overriding;
+
+public class SuperClass {
+    
+    /* 수업목표. 오버라이딩에 대해 이해할 수 있다. */
+    /* 설명. 멤버(필드 + 메소드) + 생성자에는 public / protected / default / private 네 가지 사용 가능. */
+    public void method(int num) {}
+
+    public Object method2(int num) {
+        return null;
+    }
+
+    private void privateMethod() {} // 자식에게는 인식 안됨. 자식 클래스에서 오버라이딩 불가능한 메소드이다.
+
+    public final void finalMethod() {}
+
+    protected void protectedMethod() {}
+
+    void defaultMethod() {}
+}
+/* 필기.
+ *  다형성의 토대
+ *  단점. 엮인 클래스가 많아진다.
+* */
