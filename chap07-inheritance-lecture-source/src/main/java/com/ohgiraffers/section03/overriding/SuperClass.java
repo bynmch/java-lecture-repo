@@ -18,8 +18,3 @@ public class SuperClass {
 
     void defaultMethod() {}
 }
-/* 필기.
- *  다형성의 토대
- *  단점. 엮인 클래스가 많아진다.
- *  Object
-* */

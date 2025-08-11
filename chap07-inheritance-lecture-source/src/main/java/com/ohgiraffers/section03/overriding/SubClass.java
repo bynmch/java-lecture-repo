@@ -3,7 +3,7 @@ package com.ohgiraffers.section03.overriding;
 public class SubClass extends SuperClass {
 
     /* 설명.
-     *  @Override
+     *  @Override annotation
      *  1. 오버리이딩 메소드를 확인하기 용이하도록 하는 가독성의 측면
      *  2. 오버라이딩 문법 위반 시 컴파일 에러를 발생시켜 이를 명시적으로 확인하도록 하기 위함(feat. 개발 시 오류 감소)
     * */
