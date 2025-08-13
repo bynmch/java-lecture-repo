@@ -11,13 +11,16 @@ public class Application2 {
         /* 수업목표. java.util.Calendar 클래스 사용법에 대해 이해할 수 있다. */
         /* 설명.
          *  java.util.Date 대비 개선점
-         *  1. Timezon과 관련된 기능이 추가됨.
+         *  1. Timezone과 관련된 기능이 추가됨.
          *  2. 윤년 관련기능 내부적으로 추가
          *  3. 날짜 및 시간을 필드 개념으로 바꿔서 불필요한 메소드 갯수를 줄임
         * */
 
         java.util.Date today = new java.util.Date();
         java.util.Calendar calendar = java.util.Calendar.getInstance();
+
+        System.out.println("today = " + today);
+        System.out.println("calendar = " + calendar);
 
         int year = 2025;
         int month = 8 - 1; // 0~11 인덱스로 저장
