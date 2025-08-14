@@ -5,7 +5,10 @@ import com.ohgiraffers.section02.userexception.exception.NotEnoughMoneyException
 import com.ohgiraffers.section02.userexception.exception.PriceNegativeException;
 
 public class ExceptionTest {
-    public void checkEnoughMoney(int price, int money) throws PriceNegativeException, MoneyNegativeException, NotEnoughMoneyException{
+    public void checkEnoughMoney(int price, int money)
+//            throws PriceNegativeException, MoneyNegativeException, NotEnoughMoneyException
+            throws Exception // Exception으로 throws가 가능하다.(다형성에 의해서)
+    {
         
         if(price < 0) {
             throw new PriceNegativeException("상품 가격은 음수일 수 없습니다.");
@@ -30,4 +33,5 @@ public class ExceptionTest {
  *  try블럭 안에서 예외가 발생하면 이후 try블럭을 건너뛰고 catch 블럭을 순차적으로 타입 체크하며
  *  발생한 예외 타입과 일치하는 catch블럭이 동작함
  *  자식 타입의 예외 타입을 가진 catch블럭 일수록 위쪽에 작성하고 부모 타입 일수록 아래쪽에 작성해야 한다.
+ *  Exception으로 예외 처리하면 감당이 어렵다?
 * */
