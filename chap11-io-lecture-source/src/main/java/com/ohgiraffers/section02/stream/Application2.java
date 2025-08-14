@@ -8,7 +8,7 @@ public class Application2 {
 
     public static void main(String[] args) throws IOException {
 
-        /* 수업목표. FileOutStream을 이해할 수 있다. */
+        /* 수업목표. FileOutputStream을 이해할 수 있다. */
         /* 설명.
          *  FileOutputStream은 FileInputStream과 달리 해당 파일이 존재하지 않으면 파일을 생성해준다.
          *  생성자의 두 번째 전달 인자로 true를 전달하면 기존 데이터에 추가로 이어쓰기 가능.
