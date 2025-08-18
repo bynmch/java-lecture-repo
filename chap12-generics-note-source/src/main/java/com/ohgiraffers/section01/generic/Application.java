@@ -11,7 +11,8 @@ public class Application {
         mgt.setValue(3.14);
         mgt.setValue(new java.util.Date());
 
-        boolean test = (boolean) mgt.getValue(); //타입 안정성이 좋지 않음(제네릭을 통해 만족시키자)
+        boolean test = (boolean) mgt.getValue();    //타입 안정성이 좋지 않음(제네릭을 통해 만족시키자)
+                                                    //Object는 참조자료형, boolean은 기본 자료형이기 때문에 타입 안정성이 좋지 않다.
 
 //        GenericTest<Object> gt1 = new GenericTest<>(); // 생성자 <>에 같은 자료형을 써주지 않아도 됨.
 //        GenericTest<Object> gt1 = new GenericTest<Object>();
