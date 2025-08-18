@@ -17,7 +17,7 @@ public class Application {
 //        GenericTest<Object> gt1 = new GenericTest<Object>();
         GenericTest<Double> gt2 = new GenericTest<Double>(); //구체적인 타입으로 명시한다.
         GenericTest<String> gt3 = new GenericTest<String>();
-        int test = gt2.getValue(); // 타입 안전성이 좋음(컴파일 오류를 띄움으로서 타입이 안정적임을 확인할 수 있다.)
+//        int test = gt2.getValue(); // 타입 안전성이 좋음(컴파일 오류를 띄움으로서 타입이 안정적임을 확인할 수 있다.)
 
         /* 설명.
          *  1. 제네릭 클래스는 다양한 자료형으로 변할 수 있어 클래스 하나만으로 활용가치가 높아진다.(구현의 편의성)

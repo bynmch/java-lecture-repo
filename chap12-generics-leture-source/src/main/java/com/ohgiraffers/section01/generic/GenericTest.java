@@ -1,5 +1,13 @@
 package com.ohgiraffers.section01.generic;
 
+/* 설명.
+ *  제네릭 클래스의 다이아몬드 연산자(<>)에 들어갈 수 있는 4가지 타입
+ *  1. E: Element
+ *  2. T: Type
+ *  3. K: Key
+ *  4. V: Value
+* */
+
 public class GenericTest <T> {
     private T value;
 
@@ -14,4 +22,4 @@ public class GenericTest <T> {
         this.value = value;
     }
 }
-// <>안의 자료형을 바꿀 때 마다 필드, 생성자, getter/setter의 자료형도 함께 바뀜.
+// <>안의 타입을 바꿀 때 마다 필드, 생성자, 메소드의 타입도 함께 바뀜.
