@@ -1,0 +1,6 @@
+#jdbc driver
+#Tue Aug 19 09:35:02 KST 2025
+password=swcamp
+driver=oracle.jdbc.driver.OracleDriver
+user=swcamp
+url=jdbc\:oracle\:thin\:@loccalhost\:1521\:xe
