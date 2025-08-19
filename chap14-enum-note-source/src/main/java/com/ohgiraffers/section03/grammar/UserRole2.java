@@ -1,0 +1,18 @@
+package com.ohgiraffers.section03.grammar;
+
+public enum UserRole2 {
+    GUEST("게스트"),
+    CONSUMER("구매자"),
+    PRODUCER("판매자"),
+    ADMIN("관리자");
+
+    private final String DESCRIPTION;
+
+    UserRole2(String DESCRIPTION) {
+        this.DESCRIPTION = DESCRIPTION;
+    }
+
+    public String getDESCRIPTION() {
+        return DESCRIPTION;
+    }
+}
