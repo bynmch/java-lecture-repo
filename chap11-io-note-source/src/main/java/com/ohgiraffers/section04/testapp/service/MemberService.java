@@ -58,4 +58,49 @@ public class MemberService {
         }
         
     }
+
+    public Member findMemberForMod(int memNo) {
+        
+        Member selectedMember = memberRepository.findMemberBy(memNo); //원본이므로 클래스를 변환(복사)하는 작업 필요하다.
+        
+        /* 설명. 프론트로 반환하기 전에 사본 만들어 Repository가 가진 회원 객체 대신 사본을 반환한다.(feat. 데이터 훼손(= 오염) 방지) */
+        Member copyMember = null;
+        if(selectedMember != null) { //유효성 검사
+            copyMember = selectedMember;
+            copyMember.setMemNo(selectedMember.getMemNo());
+            copyMember.setId(selectedMember.getId());
+            copyMember.setPwd(selectedMember.getPwd());
+            copyMember.setAge(selectedMember.getAge());
+        
+        /* 설명. 취미의 경우는 배열(참조형)이므로 깊은 복사를 해 주어야 한다. */
+            String[] copiedHobbies = selectedMember.getHobbies().clone();
+            copyMember.setHobbies(copiedHobbies); //얕은 복사 주의!
+            copyMember.setBloodType(selectedMember.getBloodType());
+            copyMember.setAccountStatus(selectedMember.getAccountStatus());
+        } else {
+            System.out.println("그런 회원은 없네요.");
+        }
+        
+        return copyMember;
+    }
+
+    public void modifyMember(Member reformedMember) {
+        int result = memberRepository.modifyMember(reformedMember);
+
+        if(result > 0) {
+            System.out.println(reformedMember.getId() + "회원님의 정보 수정에 성공하였습니다.");
+        } else {
+            System.out.println("회원 정보 수정에 실패하였습니다.");
+        }
+    }
+
+    public void removeMember(int memNo) {
+        int result = memberRepository.removeMember(memNo);
+
+        if(result > 0) {
+            System.out.println("회원님 그동안 감사했습니다.");
+        } else {
+            System.out.println("탈퇴에 실패했습니다.");
+        }
+    }
 }

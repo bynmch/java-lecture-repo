@@ -33,7 +33,6 @@ public class MemberRepository {
 
     }
 
-
     /* 설명. ArrayList<Member>를 받으면 파일로 컬렉션에 담긴 회원들을 출력하는 메소드(feat. 덮어씌우는 기능) */
     private void saveMembers(ArrayList<Member> members) {
         ObjectOutputStream oos = null;
@@ -72,12 +71,16 @@ public class MemberRepository {
     }
 
     public ArrayList<Member> findAllMemebers() {
+        ArrayList<Member> returnList = new ArrayList<>();
+        for(Member member: memberList) {
+            if(member.getAccountStatus() ==  AccountStatus.ACTIVE) returnList.add(member);
+        }
         return memberList;
     }
 
     public Member findMemberBy(int memNo) {
         for (Member member: memberList) {
-            if(member.getMemNo() == memNo) {
+            if(member.getMemNo() == memNo && member.getAccountStatus() ==  AccountStatus.ACTIVE) {
                 return member;
             }
         }
@@ -110,6 +113,37 @@ public class MemberRepository {
                 if(moo != null) moo.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            }
+        }
+
+        return result;
+    }
+
+    public int modifyMember(Member reformedMember) {
+
+        /* 설명. 1. repository가 가진 컬렉션의 회원부터 수정 */
+        for (int i = 0; i < memberList.size(); i++) {
+            if(memberList.get(i).getMemNo() == reformedMember.getMemNo()) {
+                memberList.set(i, reformedMember);              //i번째(수정할) 회원으로 교체
+                saveMembers(memberList);                        //교체할 회원이 포함된 전체 회원으로 파일을 다시 덮어씌움
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
+    public int removeMember(int memNo) {
+        int result = 0;
+
+        for(Member member: memberList) {
+            if(member.getMemNo() == memNo) {
+                member.setAccountStatus(AccountStatus.DEACTIVE);
+
+                saveMembers(memberList);
+
+                result = 1;
+                break;
             }
         }
 
