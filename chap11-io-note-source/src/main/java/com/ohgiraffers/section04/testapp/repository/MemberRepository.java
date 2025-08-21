@@ -28,9 +28,7 @@ public class MemberRepository {
 
             saveMembers(defaultMemberList);
         }
-
         loadMembers();
-
     }
 
     /* 설명. ArrayList<Member>를 받으면 파일로 컬렉션에 담긴 회원들을 출력하는 메소드(feat. 덮어씌우는 기능) */
@@ -99,7 +97,7 @@ public class MemberRepository {
         try {
             moo = new MyObjectOutput(new BufferedOutputStream(new FileOutputStream(file, true)));
             moo.writeObject(registMember);
-            moo.flush();        //내부저긍로 버퍼를 사용하고 있기 때문에 객체 출력을 강제한다.
+            moo.flush();        //내부적으로 버퍼를 사용하고 있기 때문에 객체 출력을 강제한다.
 
             /* 설명. 컬렉션에 담긴 기존 회원을 지우고 다시 파일의 정보를 토대로 컬렉션이 회원으로 채워지도록 작성 */
             memberList.clear();

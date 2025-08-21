@@ -6,15 +6,18 @@ import com.ohgiraffers.section04.testapp.repository.MemberRepository;
 
 import java.util.ArrayList;
 
-/* 설명. 트랜잭션 처리(DB와의 CRUD 이후 성공 및 실패 여부 처리) 및 비지니스 로직 담장 + 유효성 검사 */
+/* 설명. 트랜잭션 처리(DB와의 CRUD 이후 성공 및 실패 여부 처리) 및 비지니스 로직 담당 + 유효성 검사 */
 public class MemberService {
 
-//    private final MemberRepository memberRepository = new MemberRepository();
+//    private final MemberRepository memberRepository = new MemberRepository(); //필드주의
+//    public MemberService(){
+//        
+//    }
+    
     private final MemberRepository memberRepository;
-
     public MemberService() {
         memberRepository = new MemberRepository();
-    }
+    } // 생성자주의 (필드의 값이 바뀔 수 있는 여지가 존재한다. 스프링에서 배울 4가지정도 존재한다.)
 
     public void findAllMembers() {
         ArrayList<Member> result = memberRepository.findAllMemebers();
