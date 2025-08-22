@@ -15,7 +15,14 @@ public class Application1 {
 //            System.out.println(str + "(이)가 입력됨");
 //        };
 
-        Consumer<String> consumer = str -> System.out.println(str + "(이)가 입력됨");
+        Consumer<String> consumer =
+//                new Consumer<>() {
+//            @Override
+//            public void accept(String str) {
+//                System.out.println(str + "(이)가 입력됨");
+//            }
+//        };
+                str -> System.out.println(str + "(이)가 입력됨");
 
         consumer.accept("피카츄");
         consumer.accept("hello");

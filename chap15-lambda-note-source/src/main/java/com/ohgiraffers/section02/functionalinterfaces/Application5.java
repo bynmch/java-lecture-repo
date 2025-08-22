@@ -7,7 +7,17 @@ public class Application5 {
     public static void main(String[] args) {
 
         /* 수업목표. 표준 함수적 인터페이스인 Predicate에 대해 이해하고 사용할 수 있다. */
-        Predicate<Object> predicate = value -> value instanceof String;
+        Predicate<Object> predicate =
+//                new Predicate<>() {
+//
+//            @Override
+//            public boolean test(Object value) {
+//                return value instanceof String;
+//            }
+//        };
+//        System.out.println("문자열인가? " + "123" instanceof String);
+//        System.out.println("문자열인가? " + 123 instanceof String);
+                value -> value instanceof String;
         System.out.println("문자열인가?" + predicate.test("123"));
         System.out.println("문자열인가?" + predicate.test(123));
         

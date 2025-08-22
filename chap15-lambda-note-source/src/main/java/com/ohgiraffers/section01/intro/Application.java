@@ -20,9 +20,8 @@ public class Application {
 
         /* 설명. 3. 람다식을 활용한 방식 */
 //        Calculator cal3 = (first, second) -> {return first + second;};
-        Calculator cal3 = (first, second) -> first + second;
-        System.out.println("5와 7의 합은: " + cal3.sumToNumbers(5, 7));
-
+        Calculator cal3 = (first, second) -> first - second;
+        System.out.println("5와 7의 차는: " + cal3.sumToNumbers(5, 7));
     }
 }
 /* 필기.
