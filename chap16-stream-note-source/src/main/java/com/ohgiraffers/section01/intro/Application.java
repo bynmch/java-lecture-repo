@@ -2,6 +2,8 @@ package com.ohgiraffers.section01.intro;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 /* 설명.
  *  Stream이란?
@@ -29,8 +31,19 @@ public class Application {
         System.out.println();
 
         /* 설명. 2. Stream 방식: 순차 스트림 */
-//        studyTopics.stream().forEach(topic -> processTopic(topic));
-        studyTopics.stream().forEach(Application::processTopic);
+        Stream<String> streamStr = studyTopics.stream();
+        Consumer<String> consumer =
+//                new Consumer<String>() {
+//                    @Override
+//                    public void accept(String topic) {
+//                        processTopic(topic);
+//                    }
+//                };
+                topic -> processTopic(topic);
+
+        streamStr.forEach(consumer); //forEach내부적으로 Consumer의 accept()를 호출한다고 생각하자.
+
+//        studyTopics.stream().forEach(Application::processTopic);
         System.out.println();
 
         /* 설명. 3. Stream 방식: 병렬 스트림(다만, 너무 적은 데이터(100만개 미만)는 더 비효율적이다.(feat. 오버헤드 발생) */
