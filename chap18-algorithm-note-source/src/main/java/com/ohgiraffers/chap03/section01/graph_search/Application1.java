@@ -19,17 +19,17 @@ public class Application1 {
     
     public static Integer solution(String input) throws IOException {
         BufferedReader br = toBufferedReader(input);
-        node = Integer.parseInt(br.readLine());        
-        edge = Integer.parseInt(br.readLine());
+        node = Integer.parseInt(br.readLine()); // "7"
+        edge = Integer.parseInt(br.readLine()); // "6"
         
         /* 설명. 노드와 간선에 대한 정보가 담긴 map(node의 번호와 인덱스 번호 일치를 위해 +1) */
-        map = new int[node + 1][node + 1];
+        map = new int[node + 1][node + 1];      // 인덱스 0은 사용하지 않음.
 
         /* 설명. 방문 배열(simple path(단순 경로)를 위한 것이지만, 실제로는 stackoverflow를 방지하기 위한 목적 */
-        visit = new boolean[node + 1];
+        visit = new boolean[node + 1];          // 인덱스 0은 사용하지 않음
 
         /* 설명. 인접 리스트에 그래프 정보 작성(2차원 배열에 그래프 정보를 매핑한다.) */
-        for (int i = 0; i < edge; i++) {
+        for (int i = 1; i < edge; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
 
             int a = Integer.parseInt(st.nextToken());
@@ -41,11 +41,11 @@ public class Application1 {
             map[a][b] = map[b][a] = 1;
 
         }
-            dfs(1); //stack에 1번컴퓨터를 담는다..
 
         for (int i = 0; i < map.length; i++) {
             System.out.println(Arrays.toString(map[i]));
         } //매핑 잘 되었나 확인
+            dfs(1); //stack에 1번컴퓨터를 담는다..
         return count - 1;
     }
 
@@ -54,7 +54,7 @@ public class Application1 {
         count++;
 
         for (int i = 1; i <= node; i++) {
-            System.out.println(start + "컴퓨터와 연결된 " + i + "번 컴퓨터 방문 전 visit 배열: " + Arrays.toString(visit));
+//            System.out.println(start + "컴퓨터와 연결된 " + i + "번 컴퓨터 방문 전 visit 배열: " + Arrays.toString(visit));
             if(map[start][i] == 1 && !visit[i]) {
                 dfs(i);
             }
